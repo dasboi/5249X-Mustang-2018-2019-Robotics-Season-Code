@@ -54,13 +54,29 @@ void autonomous( void ) {
 void usercontrol( void ) {
   // User control code here, inside the loop
   while (1) {
+      int y = 0;
+      int x = Controller.Axis3.value();
+      Controller.Screen.print(x);      
+      //Brain.Screen.printAt(1,40,Controller.Axis3.value() * 1000);
+    FrontLeftMotor.setVelocity(x / 13000, vex::velocityUnits::pct); 
+    FrontRightMotor.setVelocity(x / 13000, vex::velocityUnits::pct);
+    BackLeftMotor.setVelocity(x / 13000, vex::velocityUnits::pct); 
+    BackRightMotor.setVelocity(x / 13000, vex::velocityUnits::pct);
+      
+    FrontLeftMotor.spin(vex::directionType::fwd);
+    FrontRightMotor.spin(vex::directionType::fwd);
+    BackLeftMotor.spin(vex::directionType::fwd);
+    BackRightMotor.spin(vex::directionType::fwd);
+      
+      
+      //Controller.rumble(".-.-");
     // This is the main execution loop for the user control program.
     // Each time through the loop your program should update motor + servo 
     // values based on feedback from the joysticks.
 
     // ........................................................................
     // Insert user code here. This is where you use the joystick values to 
-    // update your motors, etc.
+          // update your motors, etc.
     // ........................................................................
  
     vex::task::sleep(20); //Sleep the task for a short amount of time to prevent wasted resources. 
@@ -68,7 +84,7 @@ void usercontrol( void ) {
 }
 
 //
-// Main will set up the competition functions and callbacks.
+//Controller.Screen.clearLine(1);// Main will set up the competition functions and callbacks.
 //
 int main() {
     
