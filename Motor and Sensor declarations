@@ -1,0 +1,5 @@
+vex::brain Brain;
+vex::motor FrontLeftMotor = vex::motor(vex::PORT1, false);
+vex::motor FrontRightMotor = vex::motor(vex::PORT2, true);
+vex::motor BackLeftMotor = vex::motor(vex::PORT3, false);
+vex::motor BackRightMotor = vex::motor(vex::PORT4, true);
