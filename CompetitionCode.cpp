@@ -69,7 +69,7 @@ void usercontrol( void ) {
     BackRightMotor.spin(vex::directionType::fwd);
       
       
-      //Controller.rumble(".-.-");
+     Controller.rumble(".-.-");
     // This is the main execution loop for the user control program.
     // Each time through the loop your program should update motor + servo 
     // values based on feedback from the joysticks.
