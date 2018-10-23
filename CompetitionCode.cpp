@@ -101,10 +101,20 @@ void autonomous( void ) {
 /*  You must modify the code to add your own robot specific commands here.   */
 
 /*---------------------------------------------------------------------------*/
+
+//a method for controlling the lift that takes in a boolean value to determine the direction the lift will go 
 void ControllerLift(bool up){
+  if (up){
     LiftLeft.spin(vex::directionType::fwd);
     LiftRight.spin(vex::directionType::fwd);
+  }else{
+    //make sure the syntax is right, not sure what the name for reverse is
+    //                                 |
+    LiftLeft.spin(vex::directionType::bkd);
+    //                                 |
+    LiftRight.spin(vex::directionType::bwd);
 
+  }
 }
 
 
@@ -113,13 +123,14 @@ void usercontrol( void ) {
   // User control code here, inside the loop
   while (1) {
       
-    
+    //this if statement is checking the lower right bumper is being pressed, if so, 
+    //the CotrollerLift method will cause the lift to go up.
     if (Controller.ButtonR2.pressing()){
      ControllerLift(true); 
     }
      
       
-
+    //this block of code is waht makes the x-drive move in all directions
     FrontLeftMotor.spin(vex::directionType::fwd, Controller.Axis3.value() + Controller.Axis1.value() + Controller.Axis4.value(), vex::velocityUnits::pct);
     FrontRightMotor.spin(vex::directionType::fwd, Controller.Axis3.value() - Controller.Axis1.value() - Controller.Axis4.value(), vex::velocityUnits::pct);
     BackLeftMotor.spin(vex::directionType::fwd, Controller.Axis3.value() + Controller.Axis1.value() - Controller.Axis4.value(), vex::velocityUnits::pct);
