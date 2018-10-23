@@ -20,7 +20,7 @@ vex::competition    Competition;
 
 void pre_auton( void ) {
   // All activities that occur before the competition starts
-  // Example: clearing encoders, setting servo positions, ...
+r  // Example: clearing encoders, setting servo positions, ...
   
 }
 
@@ -55,10 +55,10 @@ void usercontrol( void ) {
   // User control code here, inside the loop
   while (1) {
       
-    FrontLeftMotor.spin(vex::directionType::fwd, Contoller.Axis3.value(), vex::velocityUnits::pct);
-    FrontRightMotor.spin(vex::directionType::fwd, Contoller.Axis3.value(), vex::velocityUnits::pct);
-    BackLeftMotor.spin(vex::directionType::fwd, Contoller.Axis3.value(), vex::velocityUnits::pct);
-    BackRightMotor.spin(vex::directionType::fwd, Contoller.Axis3.value(), vex::velocityUnits::pct);
+    FrontLeftMotor.spin(vex::directionType::fwd, Controller.Axis3.value(), vex::velocityUnits::pct);
+    FrontRightMotor.spin(vex::directionType::fwd, Controller.Axis3.value(), vex::velocityUnits::pct);
+    BackLeftMotor.spin(vex::directionType::fwd, Controller.Axis3.value(), vex::velocityUnits::pct);
+    BackRightMotor.spin(vex::directionType::fwd, Controller.Axis3.value(), vex::velocityUnits::pct);
       
       
      Controller.rumble(".-.-");
