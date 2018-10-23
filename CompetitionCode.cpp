@@ -21,7 +21,7 @@ vex::competition    Competition;
 
 void pre_auton( void ) {
   // All activities that occur before the competition starts
-r  // Example: clearing encoders, setting servo positions, ...
+  // Example: clearing encoders, setting servo positions, ...
   
 }
 
@@ -70,7 +70,7 @@ void usercontrol( void ) {
     BackRightMotor.spin(vex::directionType::fwd, Controller.Axis3.value(), vex::velocityUnits::pct);
       
       
-     Controller.rumble(".-.-");
+     //Controller.rumble(".-.-");
     // This is the main execution loop for the user control program.
     // Each time through the loop your program should update motor + servo 
     // values based on feedback from the joysticks.
