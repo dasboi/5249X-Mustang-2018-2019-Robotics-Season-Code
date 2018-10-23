@@ -114,7 +114,9 @@ void usercontrol( void ) {
   while (1) {
       
     
-    //Controller.ButtonR2.pressing(ControllerLift(true)) ERROR
+    if (Controller.ButtonR2.pressing()){
+     ControllerLift(true); 
+    }
      
     
     /*
