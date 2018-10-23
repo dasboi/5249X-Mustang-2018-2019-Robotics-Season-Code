@@ -1,3 +1,4 @@
+
 #include "robot-config.h"
 /*---------------------------------------------------------------------------*/
 /*                                                                           */
@@ -55,6 +56,14 @@ void usercontrol( void ) {
   // User control code here, inside the loop
   while (1) {
       
+    /*
+    what it should be
+    motor[leftfront] = VexRT[ch3] + VexRT[ch1] + VexRT[ch4];
+    Motor[rightfront] = VexRT[ch3] - VexRT[ch1] - VexRT[ch4];
+    Motor[leftrear] = VexRT[ch3] + VexRT[ch1] - VexRT[ch4];
+    Motor[rightrear]= VexRT[ch3] - VexRT[ch1] + VexRT[ch4];
+    */
+    
     FrontLeftMotor.spin(vex::directionType::fwd, Controller.Axis3.value(), vex::velocityUnits::pct);
     FrontRightMotor.spin(vex::directionType::fwd, Controller.Axis3.value(), vex::velocityUnits::pct);
     BackLeftMotor.spin(vex::directionType::fwd, Controller.Axis3.value(), vex::velocityUnits::pct);
