@@ -1,4 +1,4 @@
-#include "robot-config.h"
+, #include "robot-config.h"
 /*---------------------------------------------------------------------------*/
 /*                                                                           */
 /*        Description: Competition template for VCS VEX V5                    */
@@ -55,10 +55,10 @@ void usercontrol( void ) {
   // User control code here, inside the loop
   while (1) {
       
-    FrontLeftMotor.spin(vex::directionType::fwd, Contoller.Axis3.value());
-    FrontRightMotor.spin(vex::directionType::fwd, Contoller.Axis3.value());
-    BackLeftMotor.spin(vex::directionType::fwd, Contoller.Axis3.value());
-    BackRightMotor.spin(vex::directionType::fwd, Contoller.Axis3.value());
+    FrontLeftMotor.spin(vex::directionType::fwd, Contoller.Axis3.value(), vex::velocityUnits::pct);
+    FrontRightMotor.spin(vex::directionType::fwd, Contoller.Axis3.value(), vex::velocityUnits::pct);
+    BackLeftMotor.spin(vex::directionType::fwd, Contoller.Axis3.value(), vex::velocityUnits::pct);
+    BackRightMotor.spin(vex::directionType::fwd, Contoller.Axis3.value(), vex::velocityUnits::pct);
       
       
      Controller.rumble(".-.-");
