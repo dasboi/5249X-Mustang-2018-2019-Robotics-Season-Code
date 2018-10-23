@@ -118,16 +118,6 @@ void usercontrol( void ) {
      ControllerLift(true); 
     }
      
-    
-    /*
-    what it should be
-    motor[leftfront] = VexRT[ch3] + VexRT[ch1] + VexRT[ch4];
-    Motor[rightfront] = VexRT[ch3] - VexRT[ch1] - VexRT[ch4];
-    Motor[leftrear] = VexRT[ch3] + VexRT[ch1] - VexRT[ch4];
-    Motor[rightrear]= VexRT[ch3] - VexRT[ch1] + VexRT[ch4];
-    */
-    
-
       
 
     FrontLeftMotor.spin(vex::directionType::fwd, Controller.Axis3.value() + Controller.Axis1.value() + Controller.Axis4.value(), vex::velocityUnits::pct);
@@ -135,18 +125,8 @@ void usercontrol( void ) {
     BackLeftMotor.spin(vex::directionType::fwd, Controller.Axis3.value() + Controller.Axis1.value() - Controller.Axis4.value(), vex::velocityUnits::pct);
     BackRightMotor.spin(vex::directionType::fwd, Controller.Axis3.value() - Controller.Axis1.value() + Controller.Axis4.value(), vex::velocityUnits::pct);
     
-    
-      /*if (Controller.ButtonR2 == true){
-          LiftLeft.power(vex::powerUnits::
-      }
-      */
-   
+         
 
-      
-
-      
-
-     //Controller.rumble(".-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
 
     // This is the main execution loop for the user control program.
 
