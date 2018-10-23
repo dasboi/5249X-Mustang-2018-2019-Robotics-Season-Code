@@ -1,4 +1,4 @@
-, #include "robot-config.h"
+#include "robot-config.h"
 /*---------------------------------------------------------------------------*/
 /*                                                                           */
 /*        Description: Competition template for VCS VEX V5                    */
