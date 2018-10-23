@@ -4,3 +4,7 @@ vex::motor FrontLeftMotor = vex::motor(vex::PORT1, false);
 vex::motor FrontRightMotor = vex::motor(vex::PORT2, true);
 vex::motor BackLeftMotor = vex::motor(vex::PORT3, false);
 vex::motor BackRightMotor = vex::motor(vex::PORT4, true);
+vex::motor LiftLeft = vex::motor(vex::PORT11, false);
+vex::motor LiftRight = vex::motor(vex::PORT12, true);
+vex::motor BallIntake = vex::motor(vex::PORT13, false);
+vex::motor BallLauncher = vex::motor(vex::PORT14, true);
