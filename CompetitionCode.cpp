@@ -117,6 +117,10 @@ void ControllerLift(bool up){
   }
 }
 
+void ControllerFlyWheel(int speed){
+ if (speed == 1)
+   
+}
 
 void usercontrol( void ) {
 
