@@ -32,6 +32,21 @@ void pre_auton( void ) {
 /*---------------------------------------------------------------------------*/
 void driveForwardDistance(int distance){
   
+    //might have to change the velocity in theses fellas
+    FrontLeftMotor.setVelocity(50, vex::velocityUnits::pct); 
+    FrontRightMotor.setVelocity(50, vex::velocityUnits::pct);
+    BackLeftMotor.setVelocity(50, vex::velocityUnits::pct); 
+    BackRightMotor.setVelocity(50, vex::velocityUnits::pct);
+    
+    //this calculation will convert the distance into degrees
+    //each unit of distance should be aprox. 1 inch
+    degreeToRotate = distance / 20 //thi9s will need to be changes fellas 
+    
+    //Rotate the Left and Right Motor for degreesToRotate. 
+    FrontLeftMotor.rotateFor(degreesToRotate, vex::rotationUnits::deg, false);
+    FrontRightMotor.rotateFor(degreesToRotate, vex::rotationUnits::deg, false); 
+    BackLeftMotor.rotateFor(degreesToRotate, vex::rotationUnits::deg, false); 
+    BackRightMotor.rotateFor(degreesToRotate, vex::rotationUnits::deg, false);
 }
 
 
