@@ -98,8 +98,21 @@ void driveForwardDistance(int distance){
 
 }
 
+void liftUp(int degrees){
+  
+}
 
+void liftDown(int degrees){
+  
+}
 
+void ballSHooters(bool highSpeed){
+  
+}
+
+void chasisTurn(int degrees){
+  
+}
 
 
 void autonomous( void ) {
