@@ -1,0 +1,20 @@
+#include "robot-config.h"
+          
+
+int main() {
+
+    ChasisGyro.startCalibration();
+    Brain.setTimer(10,10);
+    Brain.Screen.render(true,false); //enable double buffering for smoother drawing
+    while(true){
+       
+        //LCD feedback:
+        //Each readout is divided by its gear ratio to translate from
+        //motor rotation to arm/claw rotation
+        Brain.Screen.clearLine(0,vex::color::black);
+        Brain.Screen.clearLine(1,vex::color::black);
+        Brain.Screen.setCursor(1,0);
+        Brain.Screen.print("chasis gyro: %f degrees",ChasisGyro.value(vex::analogUnits::range12bit));
+        Brain.Screen.render(); //push data to the LCD all at once to prevent image flickering
+    }
+}
