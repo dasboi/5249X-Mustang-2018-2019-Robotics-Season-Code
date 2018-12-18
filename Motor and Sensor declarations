@@ -1,4 +1,4 @@
-vex::brain Brain;
+Hvex::brain Brain;
 vex::controller Controller;
 vex::motor FrontLeftMotor = vex::motor(vex::PORT10, false);
 vex::motor FrontRightMotor = vex::motor(vex::PORT20, true);
@@ -9,4 +9,4 @@ vex::motor LiftRight = vex::motor(vex::PORT13, false);
 vex::motor BallIntake = vex::motor(vex::PORT13, false);
 vex::motor BallLauncher = vex::motor(vex::PORT14, true);
 vex::pot LiftPotentiometer = vex::pot(Brain.ThreeWirePort.A);
-vex::gyro ChasisGyro = vex::gyro(Brain.ThreeWirePort.B);
+vex::gyro ChasisGyro = vex::gyro(Brain.ThreeWirePort.H);
