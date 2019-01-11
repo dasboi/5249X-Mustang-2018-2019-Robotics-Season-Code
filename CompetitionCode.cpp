@@ -290,13 +290,20 @@ if (Controller.ButtonR2.pressing()){
     LiftLeft.spin(vex::directionType::rev,200,vex::velocityUnits::rpm);
     LiftRight.spin(vex::directionType::rev,200,vex::velocityUnits::rpm);
     }
-      
+    /*  
     //this block of code is waht makes the x-drive move in all directions
     FrontLeftMotor.spin(vex::directionType::fwd, Controller.Axis3.value() + Controller.Axis1.value() + Controller.Axis4.value(), vex::velocityUnits::pct);
     FrontRightMotor.spin(vex::directionType::fwd, Controller.Axis3.value() - Controller.Axis1.value() - Controller.Axis4.value(), vex::velocityUnits::pct);
     BackLeftMotor.spin(vex::directionType::fwd, Controller.Axis3.value() + Controller.Axis1.value() - Controller.Axis4.value(), vex::velocityUnits::pct);
     BackRightMotor.spin(vex::directionType::fwd, Controller.Axis3.value() - Controller.Axis1.value() + Controller.Axis4.value(), vex::velocityUnits::pct);
+     */
+     
     
+    FrontLeftMotor.spin(vex::directionType::fwd, Controller.Axis3.value() + Controller.Axis4.value() + Controller.Axis1.value(), vex::velocityUnits::pct);
+    FrontRightMotor.spin(vex::directionType::fwd, Controller.Axis3.value() - Controller.Axis4.value() - Controller.Axis1.value(), vex::velocityUnits::pct);
+    BackLeftMotor.spin(vex::directionType::fwd, Controller.Axis3.value() + Controller.Axis4.value() - Controller.Axis1.value(), vex::velocityUnits::pct);
+    BackRightMotor.spin(vex::directionType::fwd, Controller.Axis3.value() - Controller.Axis4.value() + Controller.Axis1.value(), vex::velocityUnits::pct);
+   
 if (Controller.ButtonR1.pressing()){
     ClawMotor.spin(vex::directionType::rev,100,vex::velocityUnits::rpm);
     }
