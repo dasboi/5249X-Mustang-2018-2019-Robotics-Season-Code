@@ -1,43 +1,86 @@
 #include "robot-config.h"
+
 /*---------------------------------------------------------------------------*/
+
 /*                                                                           */
+
 /*        Description: Competition template for VCS VEX V5                    */
+
 /*                                                                           */
+
 /*---------------------------------------------------------------------------*/
+
 //Creates a competition object that allows access to Competition methods.
+
 vex::competition    Competition;
+
 /*---------------------------------------------------------------------------*/
+
 /*                          Pre-Autonomous Functions                         */
+
 /*                                                                           */
+
 /*  You may want to perform some actions before the competition starts.      */
+
 /*  Do them in the following function.  You must return from this function   */
+
 /*  or the autonomous and usercontrol tasks will not be started.  This       */
+
 /*  function is only called once after the cortex has been powered on and    */ 
+
 /*  not every time that the robot is disabled.                               */
+
 /*---------------------------------------------------------------------------*/
+
 void pre_auton( void ) {
+
   // All activities that occur before the competition starts
+
   // Example: clearing encoders, setting servo positions, ...
+
 }
+
 /*---------------------------------------------------------------------------*/
+
 /*                                                                           */
+
 /*                              Autonomous Task                              */
+
 /*                                                                           */
+
 /*  This task is used to control your robot during the autonomous phase of   */
+
 /*  a VEX Competition.                                                       */
+
 /*                                                                           */
+
 /*  You must modify the code to add your own robot specific commands here.   */
+
 /*---------------------------------------------------------------------------*/
+
 void driveForwardDistance(int distance){
+
     //might have to change the velocity in theses fellas
+
     FrontLeftMotor.setVelocity(50, vex::velocityUnits::pct); 
+
     FrontRightMotor.setVelocity(50, vex::velocityUnits::pct);
+
     BackLeftMotor.setVelocity(50, vex::velocityUnits::pct); 
+
     BackRightMotor.setVelocity(50, vex::velocityUnits::pct);
 
 
+
+
+
     //this calculation will convert the distance into degrees
+
     //each unit of distance should be aprox. 1 inch
+
+
+
+
 
 
 
@@ -45,7 +88,15 @@ void driveForwardDistance(int distance){
 
 
 
+
+
+
+
     
+
+
+
+
 
 
 
@@ -53,7 +104,15 @@ void driveForwardDistance(int distance){
 
 
 
+
+
+
+
     FrontLeftMotor.rotateFor(degreesToRotate, vex::rotationUnits::deg, false);
+
+
+
+
 
 
 
@@ -61,7 +120,15 @@ void driveForwardDistance(int distance){
 
 
 
+
+
+
+
     BackLeftMotor.rotateFor(degreesToRotate, vex::rotationUnits::deg, false); 
+
+
+
+
 
 
 
@@ -69,39 +136,304 @@ void driveForwardDistance(int distance){
 
 
 
+
+
+
+
 }
+
+
+
+
 
 
 
 void liftUp(int degrees){
 
+
+
   
 
+
+
 }
+
+
+
+
 
 
 
 void liftDown(int degrees){
 
+
+
   
 
+
+
 }
+
+
+
+
 
 
 
 void ballSHooters(bool highSpeed){
 
+
+
   
 
+
+
 }
+
+
+
+
 
 
 
 void chasisTurn(int degrees){
 
+
+
   
 
+
+
 }
+
+void DriveDistance(int distance, int speed){
+
+    //this fella needs to be changed so that it is 1:1
+
+    double DistanceMultiplier = 1.000;
+
+    double DistanceTheMotorHasToGo = distance * DistanceMultiplier;
+
+    FrontLeftMotor.setVelocity(speed, vex::velocityUnits::pct); 
+
+    FrontRightMotor.setVelocity(speed, vex::velocityUnits::pct);
+
+    BackLeftMotor.setVelocity(speed, vex::velocityUnits::pct); 
+
+    BackRightMotor.setVelocity(speed, vex::velocityUnits::pct);
+
+    FrontLeftMotor.rotateFor(DistanceTheMotorHasToGo, vex::rotationUnits::deg, false);
+
+    FrontRightMotor.rotateFor(DistanceTheMotorHasToGo, vex::rotationUnits::deg, false);
+
+    BackLeftMotor.rotateFor(DistanceTheMotorHasToGo, vex::rotationUnits::deg, false);
+
+    BackRightMotor.rotateFor(DistanceTheMotorHasToGo, vex::rotationUnits::deg, false);
+
+}
+
+void rightDriveDistance(int distance, int speed){
+
+    //this fella needs to be changed so that it is 1:1
+
+    double DistanceMultiplier = 1.000;
+
+    double DistanceTheMotorHasToGo = distance * DistanceMultiplier;
+
+    FrontLeftMotor.setVelocity(speed, vex::velocityUnits::pct); 
+
+    FrontRightMotor.setVelocity(speed, vex::velocityUnits::pct);
+
+    BackLeftMotor.setVelocity(speed, vex::velocityUnits::pct); 
+
+    BackRightMotor.setVelocity(speed, vex::velocityUnits::pct);
+
+    FrontLeftMotor.rotateFor(DistanceTheMotorHasToGo, vex::rotationUnits::deg, false);
+
+    FrontRightMotor.rotateFor(-DistanceTheMotorHasToGo, vex::rotationUnits::deg, false);
+
+    BackLeftMotor.rotateFor(-DistanceTheMotorHasToGo, vex::rotationUnits::deg, false);
+
+    BackRightMotor.rotateFor(DistanceTheMotorHasToGo, vex::rotationUnits::deg, false);
+
+}
+
+
+
+void leftDriveDistance(int distance, int speed){
+
+    //this fella needs to be changed so that it is 1:1
+
+    double DistanceMultiplier = 1.000;
+
+    double DistanceTheMotorHasToGo = distance * DistanceMultiplier;
+
+    FrontLeftMotor.setVelocity(speed, vex::velocityUnits::pct); 
+
+    FrontRightMotor.setVelocity(speed, vex::velocityUnits::pct);
+
+    BackLeftMotor.setVelocity(speed, vex::velocityUnits::pct); 
+
+    BackRightMotor.setVelocity(speed, vex::velocityUnits::pct);
+
+    FrontLeftMotor.rotateFor(-DistanceTheMotorHasToGo, vex::rotationUnits::deg, false);
+
+    FrontRightMotor.rotateFor(DistanceTheMotorHasToGo, vex::rotationUnits::deg, false);
+
+    BackLeftMotor.rotateFor(DistanceTheMotorHasToGo, vex::rotationUnits::deg, false);
+
+    BackRightMotor.rotateFor(-DistanceTheMotorHasToGo, vex::rotationUnits::deg, false);
+
+}
+
+void backDriveDistance(int distance, int speed){
+
+    //this fella needs to be changed so that it is 1:1
+
+    double DistanceMultiplier = 1.000;
+
+    double DistanceTheMotorHasToGo = distance * DistanceMultiplier;
+
+    FrontLeftMotor.setVelocity(speed, vex::velocityUnits::pct); 
+
+    FrontRightMotor.setVelocity(speed, vex::velocityUnits::pct);
+
+    BackLeftMotor.setVelocity(speed, vex::velocityUnits::pct); 
+
+    BackRightMotor.setVelocity(speed, vex::velocityUnits::pct);
+
+    FrontLeftMotor.rotateFor(-DistanceTheMotorHasToGo, vex::rotationUnits::deg, false);
+
+    FrontRightMotor.rotateFor(-DistanceTheMotorHasToGo, vex::rotationUnits::deg, false);
+
+    BackLeftMotor.rotateFor(-DistanceTheMotorHasToGo, vex::rotationUnits::deg, false);
+
+    BackRightMotor.rotateFor(-DistanceTheMotorHasToGo, vex::rotationUnits::deg, false);
+
+}
+
+//edit this so that it can turn
+
+void Turn(int degrees, int speed, bool rightTurn, double distance){
+
+    //this is for the speed in the other direction
+
+    double gyroVal = ChassisGyro.value(vex::analogUnits::range12bit);
+
+        Brain.Screen.printAt(1, 30, true, "Chassis Gyro: %f", gyroVal);
+
+    //int speedInOtherDirection = speed * -1;
+
+    if (rightTurn == true){
+
+    while(gyroVal < degrees){
+
+        double gyroVal = ChassisGyro.value(vex::analogUnits::range12bit);
+
+        Brain.Screen.printAt(1, 30, true, "Chassis Gyro: %f", gyroVal);
+
+        if (gyroVal >= degrees - 6){
+
+            break;
+
+        }
+
+        //needs to be set to speed
+
+        FrontLeftMotor.spin(vex::directionType::fwd, speed,vex::velocityUnits::rpm);
+
+        FrontRightMotor.spin(vex::directionType::rev, speed,vex::velocityUnits::rpm);
+
+        BackLeftMotor.spin(vex::directionType::fwd, speed,vex::velocityUnits::rpm);
+
+        BackRightMotor.spin(vex::directionType::rev, speed,vex::velocityUnits::rpm);
+
+    }
+
+        FrontLeftMotor.stop();
+
+        FrontRightMotor.stop();
+
+        BackLeftMotor.stop(); 
+
+        BackRightMotor.stop();
+
+   }else if (rightTurn == false){
+
+    while(gyroVal > degrees){
+
+        double gyroVal = ChassisGyro.value(vex::analogUnits::range12bit);
+
+        Brain.Screen.printAt(1, 30, true, "Chassis Gyro: %f", gyroVal);
+
+        if (gyroVal <= degrees + 90){
+
+            break;
+
+        }
+
+        FrontLeftMotor.spin(vex::directionType::rev, speed,vex::velocityUnits::rpm);
+
+        FrontRightMotor.spin(vex::directionType::fwd, speed,vex::velocityUnits::rpm);
+
+        BackLeftMotor.spin(vex::directionType::rev, speed,vex::velocityUnits::rpm);
+
+        BackRightMotor.spin(vex::directionType::fwd, speed,vex::velocityUnits::rpm);
+
+    }    
+
+        FrontLeftMotor.stop();
+
+        FrontRightMotor.stop();
+
+        BackLeftMotor.stop(); 
+
+        BackRightMotor.stop();
+
+   }
+
+}
+
+
+
+void Lift(int degrees, int speed){
+
+   LiftLeft.rotateFor(degrees,vex::rotationUnits::deg, speed, vex::velocityUnits::rpm);
+
+   LiftRight.rotateFor(degrees,vex::rotationUnits::deg, speed, vex::velocityUnits::rpm);
+
+   LiftLeft.stop(vex::brakeType::brake);
+
+   LiftRight.stop(vex::brakeType::brake);
+
+}
+
+
+
+void BallShooterBasedOnSpeedInCaseWeHaveNoStandards(int speed){
+
+
+
+}
+
+void BallShooterMode(bool HighFlag){
+
+
+
+}
+
+
+
+//void ClawRotator(degrees, speed){
+
+    
+
+//}
+
+
+
+
+
 
 
 
@@ -110,10 +442,23 @@ void chasisTurn(int degrees){
 void autonomous( void ) {
 
 
+//backDriveDistance(1000, 100);
+
+
+
+
 
   // ..........................................................................
 
-driveForwardDistance(20);
+
+
+
+
+
+
+
+
+
 
 
 
@@ -123,7 +468,15 @@ driveForwardDistance(20);
 
 
 
+
+
+
+
   // ..........................................................................
+
+
+
+
 
 
 
@@ -135,11 +488,27 @@ driveForwardDistance(20);
 
 
 
+
+
+
+
+
+
+
+
 /*---------------------------------------------------------------------------*/
 
 
 
+
+
+
+
 /*                                                                           */
+
+
+
+
 
 
 
@@ -147,7 +516,15 @@ driveForwardDistance(20);
 
 
 
+
+
+
+
 /*                                                                           */
+
+
+
+
 
 
 
@@ -155,7 +532,15 @@ driveForwardDistance(20);
 
 
 
+
+
+
+
 /*  a VEX Competition.                                                       */
+
+
+
+
 
 
 
@@ -163,11 +548,27 @@ driveForwardDistance(20);
 
 
 
+
+
+
+
 /*  You must modify the code to add your own robot specific commands here.   */
 
 
 
+
+
+
+
 /*---------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+
 
 
 
@@ -179,14 +580,29 @@ driveForwardDistance(20);
 
 
 
+
+
+
+
 void ControllerLift(bool up){
+
   if (up){
+
     LiftLeft.spin(vex::directionType::fwd);
+
     LiftRight.spin(vex::directionType::fwd);
+
   }else{
+
     //make sure the syntax is right, not sure what the name for reverse is
 
+
+
     LiftLeft.spin(vex::directionType::rev);
+
+
+
+
 
 
 
@@ -198,11 +614,31 @@ void ControllerLift(bool up){
 
 
 
+
+
+
+
+
+
+
+
   }
 
 
 
+
+
+
+
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -218,11 +654,31 @@ void usercontrol( void ) {
 
 
 
+
+
+
+
+
+
+
+
   // User control code here, inside the loop
 
 
 
+
+
+
+
   while (true) {
+
+
+
+
+
+
+
+
 
 
 
@@ -238,7 +694,19 @@ void usercontrol( void ) {
 
 
 
+
+
+
+
+
+
+
+
     //the CotrollerLift method will cause the lift to go up.
+
+
+
+
 
 
 
@@ -246,7 +714,15 @@ void usercontrol( void ) {
 
 
 
+
+
+
+
 if (Controller.ButtonR2.pressing()){
+
+
+
+
 
 
 
@@ -254,11 +730,23 @@ if (Controller.ButtonR2.pressing()){
 
 
 
+
+
+
+
     LiftRight.spin(vex::directionType::fwd);
 
 
 
+
+
+
+
     }else{
+
+
+
+
 
 
 
@@ -266,11 +754,23 @@ if (Controller.ButtonR2.pressing()){
 
 
 
+
+
+
+
 Motor.spin(vex::directionType::fwd,50,vex::velocityUnits::rpm);    //LiftRight.stop(vex::brakeType::hold);
 
 
 
+
+
+
+
     }
+
+
+
+
 
 
 
@@ -278,73 +778,123 @@ Motor.spin(vex::directionType::fwd,50,vex::velocityUnits::rpm);    //LiftRight.s
 
 
 
+
+
+
+
 if (Controller.ButtonL2.pressing()){
+
     LiftLeft.spin(vex::directionType::fwd,200,vex::velocityUnits::rpm);
+
     LiftRight.spin(vex::directionType::fwd,200,vex::velocityUnits::rpm);
+
     }else{
+
     LiftLeft.stop(vex::brakeType::hold);
+
     LiftRight.stop(vex::brakeType::hold);
+
     }
+
       
+
 if (Controller.ButtonR2.pressing()){
+
     LiftLeft.spin(vex::directionType::rev,200,vex::velocityUnits::rpm);
+
     LiftRight.spin(vex::directionType::rev,200,vex::velocityUnits::rpm);
+
     }
+
     /*  
+
     //this block of code is waht makes the x-drive move in all directions
+
     FrontLeftMotor.spin(vex::directionType::fwd, Controller.Axis3.value() + Controller.Axis1.value() + Controller.Axis4.value(), vex::velocityUnits::pct);
+
     FrontRightMotor.spin(vex::directionType::fwd, Controller.Axis3.value() - Controller.Axis1.value() - Controller.Axis4.value(), vex::velocityUnits::pct);
+
     BackLeftMotor.spin(vex::directionType::fwd, Controller.Axis3.value() + Controller.Axis1.value() - Controller.Axis4.value(), vex::velocityUnits::pct);
+
     BackRightMotor.spin(vex::directionType::fwd, Controller.Axis3.value() - Controller.Axis1.value() + Controller.Axis4.value(), vex::velocityUnits::pct);
+
      */
+
      
+
     
-    FrontLeftMotor.spin(vex::directionType::fwd, Controller.Axis3.value() + Controller.Axis4.value() + Controller.Axis1.value(), vex::velocityUnits::pct);
-    FrontRightMotor.spin(vex::directionType::fwd, Controller.Axis3.value() - Controller.Axis4.value() - Controller.Axis1.value(), vex::velocityUnits::pct);
-    BackLeftMotor.spin(vex::directionType::fwd, Controller.Axis3.value() + Controller.Axis4.value() - Controller.Axis1.value(), vex::velocityUnits::pct);
-    BackRightMotor.spin(vex::directionType::fwd, Controller.Axis3.value() - Controller.Axis4.value() + Controller.Axis1.value(), vex::velocityUnits::pct);
+
+    FrontLeftMotor.spin(vex::directionType::fwd, (Controller.Axis3.value() + Controller.Axis4.value() + Controller.Axis1.value()) *.8, vex::velocityUnits::pct);
+
+    FrontRightMotor.spin(vex::directionType::fwd, (Controller.Axis3.value() - Controller.Axis4.value() - Controller.Axis1.value()) *.8, vex::velocityUnits::pct);
+
+    BackLeftMotor.spin(vex::directionType::fwd, (Controller.Axis3.value() + Controller.Axis4.value() - Controller.Axis1.value())  *.8, vex::velocityUnits::pct);
+
+    BackRightMotor.spin(vex::directionType::fwd, (Controller.Axis3.value() - Controller.Axis4.value() + Controller.Axis1.value()) *.8, vex::velocityUnits::pct);
+
    
+
 if (Controller.ButtonR1.pressing()){
+
     ClawMotor.spin(vex::directionType::rev,100,vex::velocityUnits::rpm);
+
     }
+
+
 
 if (Controller.ButtonL1.pressing()){
+
     ClawMotor.spin(vex::directionType::fwd,100,vex::velocityUnits::rpm);
-    }
-if (Controller.ButtonX.pressing()){
-    ClawMotor.stop(vex::brakeType::coast);
+
     }
 
+if (Controller.ButtonX.pressing()){
+
+    ClawMotor.stop(vex::brakeType::coast);
+
+    }
+
+
+
       //ClawMotor.stop(vex::brakeType::coast);
+
       
+
     
+
     // This is the main execution loop for the user control program.
+
     // Each time through the loop your program should update motor + servo 
+
     // values based on feedback from the joysticks.
+
     // ........................................................................
+
     // Insert user code here. This is where you use the joystick values to 
+
  // update your motors, 
+
     // ........................................................................
+
     vex::task::sleep(20); //Sleep the task for a short amount of time to prevent wasted resources. 
+
   }
+
 }
+
+
 
 //
 //Controller.Screen.clearLine(1);// Main will set up the competition functions and callbacks.
 int main() {
 
     //Run the pre-autonomous function.
-
-    driveForwardDistance(20);
-
     pre_auton();
     //Set up callbacks for autonomous and driver control periods
     Competition.autonomous( autonomous );
     Competition.drivercontrol( usercontrol );
     //Prevent main from exiting with an infinite loop.                        
     while(1) {
-
       vex::task::sleep(100);//Sleep the task for a short amount of time to prevent wasted resources.
-
     }    
 }
