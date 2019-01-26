@@ -53,7 +53,7 @@ void backDriveDistance(int distance, int speed){
     BackRightMotor.rotateFor(-DistanceTheMotorHasToGo, vex::rotationUnits::deg, false);
 }
 //edit this so that it can turn
-void Turn(int degrees, int speed, bool rightTurn, double distance){
+/*void Turn(int degrees, int speed, bool rightTurn, double distance){
     //this is for the speed in the other direction
     double gyroVal = ChassisGyro.value(vex::analogUnits::range12bit);
         Brain.Screen.printAt(1, 30, true, "Chassis Gyro: %f", gyroVal);
@@ -93,7 +93,7 @@ void Turn(int degrees, int speed, bool rightTurn, double distance){
         BackRightMotor.stop();
    }
 }
-
+*/
 void Lift(int degrees, int speed){
    LiftLeft.rotateFor(degrees,vex::rotationUnits::deg, speed, vex::velocityUnits::rpm);
    LiftRight.rotateFor(degrees,vex::rotationUnits::deg, speed, vex::velocityUnits::rpm);
@@ -108,14 +108,18 @@ void BallShooterMode(bool HighFlag){
 
 }
 
-void ClawRotator(degrees, speed){
-    
-}
+
 
 int main() {
+    DriveDistance(100, 200);
     vex::task::sleep(500);
+    ClawMotor.spin(vex::directionType::fwd,200,vex::velocityUnits::rpm);
+    vex::task::sleep(500);
+    rightDriveDistance(350, 100);
+    vex::task::sleep(500);
+    DriveDistance(900, 100);
     //ChassisGyro.startCalibration();
-    Lift(100, 200);
+    
     vex::task::sleep(500);
     //DriveDistance(100,200);
     vex::task::sleep(100);
